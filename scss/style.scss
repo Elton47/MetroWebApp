@@ -11,6 +11,8 @@ html, body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  background-color: white;
+  transition: .35s $ease-in-material;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   &.sidebar-closed {
     >header > div.title > i.material-icons {
@@ -21,6 +23,18 @@ html, body {
     }
     >nav.sidebar {
       transform: translateX(-100%);
+    }
+  }
+  &.black-theme {
+    background-color: $background-color;
+    color: $text-secondary;
+    nav.sidebar, footer {
+      background-color: lighten($background-color, 2.5);
+    }
+    nav.sidebar {
+      ul > li:hover {
+        background-color: darken($text, 5);
+      }
     }
   }
   >header {
@@ -62,10 +76,9 @@ html, body {
       >div.settings {
         display: flex;
         padding: 0 .25em;
-        width: 4em;
         transition: .5s $ease-in-material;
         &.closed {
-          margin-right: -4.5em;
+          margin-right: -2em;
           opacity: 0;
           pointer-events: none;
         }
@@ -80,8 +93,8 @@ html, body {
     top: 4em;
     bottom: 0;
     box-shadow: $raised-fab;
-    background-color: $text-secondary;
-    transition: .5s $ease-in-material;
+    background-color: white;
+    transition: transform .5s $ease-in-material, background-color .35s $ease-in-material;
     z-index: 250;
     >ul {
       margin: 0;
@@ -91,8 +104,11 @@ html, body {
         padding: 1em 2em;
         display: flex;
         align-items: center;
-        transition: .3s $ease-in-material;
-        border-bottom: 1px solid lighten($text, 50);
+        transition: background-color .35s $ease-in-material;
+        border-bottom: 1px solid rgba($text, .2);
+        &:hover {
+          background-color: darken($text-secondary, 5);
+        }
         &:not(.user-view) > i.material-icons {
           margin-right: 1em;
         }
@@ -106,9 +122,6 @@ html, body {
           >:last-child {
             margin: 0;
           }
-        }
-        &:hover {
-          background-color: darken($text-secondary, 5);
         }
       }
     }
@@ -126,12 +139,12 @@ html, body {
         display: flex;
         box-shadow: $dp1;
         >div.color-palette-wrapper {
-          margin: auto;
+          margin: 20% 10%;
+          width: 100%;
           padding-top: 2em;
           display: grid;
           grid-template-columns: repeat(3, minmax(33%, 33%));
           &::before {
-            color: $text-secondary;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -140,8 +153,6 @@ html, body {
           >div.color-palette {
             color: $text-secondary;
             text-shadow: 1px 1px $text;
-            width: 200px;
-            height: 200px;
             display: flex;
             transition: .25s ease;
             cursor: pointer;
@@ -218,6 +229,7 @@ html, body {
       }
       >footer {
         height: 3em;
+        transition: background-color .35s $ease-in-material;
       }
     }
   }
