@@ -1,0 +1,206 @@
+@import "_variables.scss";
+@import "_common.scss";
+html, body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0;
+  height: 100%;
+  color: $text;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  &.sidebar-closed {
+    >header > div.title > i.material-icons {
+      transform: rotateZ(-180deg);
+      &::after {
+        content: 'menu';
+      }
+    }
+    >nav.sidebar {
+      transform: translateX(-100%);
+    }
+  }
+  >header {
+    height: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2em;
+    box-shadow: $search-hover;
+    color: $text-secondary;
+    background-color: $primary-color;
+    text-shadow: 1px 1px $text;
+    z-index: 500;
+    >div.title {
+      display: flex;
+      align-items: center;
+      >i.material-icons {
+        transition: .5s $ease-in-material;
+        &::after {
+          content: 'arrow_back';
+        }
+      }
+      >h3 {
+        margin: 0 1em;
+      }
+    }
+    >div.right-nav {
+      display: flex;
+      >i.material-icons:hover {
+        font-size: 26px;
+      }
+    }
+  }
+  >nav.sidebar {
+    min-width: 200px;
+    max-width: 300px;
+    width: 20%;
+    position: absolute;
+    top: 4em;
+    bottom: 0;
+    box-shadow: $raised-fab;
+    background-color: $text-secondary;
+    transition: .5s $ease-in-material;
+    z-index: 250;
+    >ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      >li {
+        padding: 1em 2em;
+        display: flex;
+        align-items: center;
+        transition: .3s $ease-in-material;
+        border-bottom: 1px solid lighten($text, 50);
+        &:not(.user-view) > i.material-icons {
+          margin-right: 1em;
+        }
+        &.user-view {
+          padding: 1em 0;
+          flex-direction: column;
+          justify-content: center;
+          >i.material-icons {
+            font-size: 4em;
+          }
+          >:last-child {
+            margin: 0;
+          }
+        }
+        &:hover {
+          background-color: darken($text-secondary, 5);
+        }
+      }
+    }
+  }
+  >main {
+    flex: 1;
+    display: flex;
+    >div.main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      >div.main-content {
+        flex: 1;
+        display: flex;
+        box-shadow: $dp1;
+        >div.color-palette-wrapper {
+          margin: auto;
+          padding-top: 2em;
+          display: grid;
+          grid-template-columns: repeat(3, minmax(33%, 33%));
+          &::before {
+            color: $text-secondary;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            content: 'Color Palette - Hover for more colors';
+          }
+          >div.color-palette {
+            color: $text-secondary;
+            text-shadow: 1px 1px $text;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            transition: .25s ease;
+            cursor: pointer;
+            &::before {
+              margin: auto;
+            }
+            &:hover {
+              transform: translateY(-1em) scale(1.05);
+              box-shadow: $raised-fab;
+              z-index: 50;
+            }
+            &:nth-child(1) {
+              background-color: $background-color;
+              &::before {
+                content: 'Background';
+              }
+            }
+            &:nth-child(2) {
+              background-color: $primary-color;
+              &::before {
+                content: 'Primary';
+              }
+            }
+            &:nth-child(3) {
+              background-color: $accent-color;
+              &::before {
+                content: 'Accent';
+              }
+              &:hover {
+                background-color: $hover-accent-color;
+                &::before {
+                  content: 'Hover';
+                }
+              }
+            }
+            &:nth-child(4) {
+              background-color: $success-color;
+              &::before {
+                content: 'Success';
+              }
+              &:hover {
+                background-color: $hover-success-color;
+                &::before {
+                  content: 'Hover';
+                }
+              }
+            }
+            &:nth-child(5) {
+              background-color: $warn-color;
+              &::before {
+                content: 'Warn';
+              }
+              &:hover {
+                background-color: $hover-warn-color;
+                &::before {
+                  content: 'Hover';
+                }
+              }
+            }
+            &:nth-child(6) {
+              background-color: $danger-color;
+              &::before {
+                content: 'Danger';
+              }
+              &:hover {
+                background-color: $hover-danger-color;
+                &::before {
+                  content: 'Hover';
+                }
+              }
+            }
+          }
+        }
+      }
+      >footer {
+        height: 3em;
+      }
+    }
+  }
+}
