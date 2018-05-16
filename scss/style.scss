@@ -24,6 +24,7 @@ html, body {
     }
   }
   >header {
+    position: relative;
     height: 4em;
     display: flex;
     align-items: center;
@@ -49,13 +50,30 @@ html, body {
     }
     >div.right-nav {
       display: flex;
-      >i.material-icons:hover {
-        font-size: 26px;
+      >i.material-icons {
+        margin: 0 .25em;
+        &:first-child {
+          transition: .75s $ease-in-material;
+          &.rotated {
+            transform: rotateZ(-180deg);
+          }
+        }
+      }
+      >div.settings {
+        display: flex;
+        padding: 0 .25em;
+        width: 4em;
+        transition: .5s $ease-in-material;
+        &.closed {
+          margin-right: -4.5em;
+          opacity: 0;
+          pointer-events: none;
+        }
       }
     }
   }
   >nav.sidebar {
-    min-width: 200px;
+    min-width: 250px;
     max-width: 300px;
     width: 20%;
     position: absolute;
