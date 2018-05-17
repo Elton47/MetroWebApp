@@ -168,11 +168,9 @@ html, body {
             text-shadow: 1px 1px $text;
             padding: calc(100vw / 20);
             display: flex;
+            justify-content: center;
             transition: .35s $ease-in-material;
             cursor: pointer;
-            &::before {
-              margin: auto;
-            }
             &.hover, &:hover {
               transform: translateY(-1em) scale(1.05);
               box-shadow: $raised-fab;
