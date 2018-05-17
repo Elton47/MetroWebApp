@@ -155,9 +155,9 @@ html, body {
         display: flex;
         box-shadow: $dp1;
         >div.color-palette-wrapper {
-          width: 75%;
-          height: 75%;
-          margin: auto;
+          width: 40%;
+          height: 40%;
+          margin: auto auto 2em auto;
           padding-top: 2em;
           display: grid;
           grid-template-columns: repeat(3, minmax(33%, 33%));
