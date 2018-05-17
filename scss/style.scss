@@ -153,11 +153,16 @@ html, body {
       >div.main-content {
         flex: 1;
         display: flex;
+        flex-direction: column;
         box-shadow: $dp1;
+        >div.main-top-wrapper {
+          flex: 1;
+          display: flex;
+        }
         >div.color-palette-wrapper {
           width: 40%;
           height: 40%;
-          margin: auto auto 2em auto;
+          margin: 2em auto;
           padding-top: 2em;
           display: grid;
           grid-template-columns: repeat(3, minmax(33%, 33%));
