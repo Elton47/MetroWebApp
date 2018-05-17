@@ -160,31 +160,26 @@ html, body {
           display: flex;
         }
         >div.color-palette-wrapper {
-          width: 40%;
-          height: 40%;
           margin: 2em auto;
-          padding-top: 2em;
           display: grid;
           grid-template-columns: repeat(3, minmax(33%, 33%));
-          &::before {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            content: 'Color Palette - Hover for more colors';
-          }
           >div.color-palette {
             color: $text-secondary;
             text-shadow: 1px 1px $text;
+            padding: calc(100vw / 20);
             display: flex;
-            transition: .25s ease;
+            transition: .35s $ease-in-material;
             cursor: pointer;
             &::before {
               margin: auto;
             }
-            &:hover {
+            &.hover, &:hover {
               transform: translateY(-1em) scale(1.05);
               box-shadow: $raised-fab;
               z-index: 50;
+              &:nth-child(n + 3)::before {
+                content: 'Hover';
+              }
             }
             &:nth-child(1) {
               background-color: $background-color;
@@ -203,11 +198,8 @@ html, body {
               &::before {
                 content: 'Accent';
               }
-              &:hover {
+              &.hover, &:hover {
                 background-color: $hover-accent-color;
-                &::before {
-                  content: 'Hover';
-                }
               }
             }
             &:nth-child(4) {
@@ -215,11 +207,8 @@ html, body {
               &::before {
                 content: 'Success';
               }
-              &:hover {
+              &.hover, &:hover {
                 background-color: $hover-success-color;
-                &::before {
-                  content: 'Hover';
-                }
               }
             }
             &:nth-child(5) {
@@ -227,11 +216,8 @@ html, body {
               &::before {
                 content: 'Warn';
               }
-              &:hover {
+              &.hover, &:hover {
                 background-color: $hover-warn-color;
-                &::before {
-                  content: 'Hover';
-                }
               }
             }
             &:nth-child(6) {
@@ -239,11 +225,8 @@ html, body {
               &::before {
                 content: 'Danger';
               }
-              &:hover {
+              &.hover, &:hover {
                 background-color: $hover-danger-color;
-                &::before {
-                  content: 'Hover';
-                }
               }
             }
           }
