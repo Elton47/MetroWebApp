@@ -157,6 +157,15 @@ html, body {
         >div.main-top-wrapper {
           flex: 1;
           display: flex;
+          >input {
+            flex: 1;
+            color: $text;
+            padding: 0 2em;
+            border: $thin-border;
+            outline: none;
+            height: 54px;
+            margin: auto 2em 2em 2em;
+          }
           >.fab {
             margin: auto 2em 2em auto;
           }
