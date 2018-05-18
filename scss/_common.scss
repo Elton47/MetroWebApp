@@ -1,4 +1,3 @@
-@import "_pulse.scss";
 @import "_variables.scss";
 i.material-icons, nav>ul>li {
   cursor: pointer;
@@ -33,6 +32,27 @@ i.material-icons, nav>ul>li {
   background-color: $danger-color;
   &.hover, &:hover, &:focus {
     background-color: $hover-danger-color;
+  }
+}
+.pulse {
+  position: relative;
+  &::before {
+    content: '';
+    display: flex;
+    align-self: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: inherit;
+    animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    z-index: -1;
+  }
+  @keyframes pulse-animation {
+    50%, 100% {
+      opacity: 0;
+      transform: scale(1.5);
+    }
   }
 }
 .fab {
