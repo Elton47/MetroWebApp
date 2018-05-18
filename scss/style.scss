@@ -246,28 +246,4 @@ html, body {
       }
     }
   }
-  .toast {
-    position: fixed;
-    right: 0;
-    bottom: 3em;
-    padding: 1em 1.5em;
-    display: flex;
-    align-items: center;
-    color: $text-secondary;
-    pointer-events: none;
-    z-index: 999;
-    animation: slideDown .5s $ease-in-material forwards;
-    &.shown {
-      animation: slideLeft .5s $ease-in-material;
-      @keyframes slideLeft {
-        from { transform: translateX(100%); opacity: .75; }
-      }
-    }
-    @keyframes slideDown {
-      to { transform: translateY(200%); opacity: .75; }
-    }
-    >i {
-      padding-right: .5em;
-    }
-  }
 }
