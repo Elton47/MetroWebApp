@@ -7,7 +7,7 @@ $(function() {
     $('header > div.right-nav > div.settings').toggleClass('closed').children().click(function() { $('body').toggleClass('black-theme'); });
   });
   $('header > div.right-nav > i.material-icons:last-child').click(function() { window.close(); });
-  $('.main-top-wrapper > .fab').click(function(e) { toast(4000, 'Test', 'warning', 'primary-color'); });
+  $('.main-top-wrapper > .fab').click(function(e) { toast(4000, $('.main-top-wrapper > input[type="text"]').val(), 'warning', 'primary-color'); });
   colorPaletteSequencer(0, $('div.color-palette'));
 });
 function colorPaletteSequencer(index, elements) {
@@ -17,7 +17,7 @@ function colorPaletteSequencer(index, elements) {
 }
 function toast(duration, message, icon, color) {
   $('.toast').remove();
-  $('body').append('<div class="toast shown ' + color + '">' + message + '</div>');
+  $('body').append('<div class="toast shown ' + color + '">' + (message ? message : 'Enter text!') + '</div>');
   icon ? $('.toast').prepend('<i class="material-icons">' + icon + '</i>') : '';
   setTimeout(function() { $('.toast').removeClass('shown'); }, duration);
 }
