@@ -1,3 +1,5 @@
+@import "_pulse.scss";
+@import "_variables.scss";
 i.material-icons, nav>ul>li {
   cursor: pointer;
   text-shadow: none;
@@ -11,13 +13,45 @@ i.material-icons, nav>ul>li {
 }
 .accent-color {
   background-color: $accent-color;
+  &.hover, &:hover, &:focus {
+    background-color: $hover-accent-color;
+  }
 }
 .success-color {
   background-color: $success-color;
+  &.hover, &:hover, &:focus {
+    background-color: $hover-success-color;
+  }
 }
-.warning-color {
-  background-color: $warning-color;
+.warn-color {
+  background-color: $warn-color;
+  &.hover, &:hover, &:focus {
+    background-color: $hover-warn-color;
+  }
 }
 .danger-color {
   background-color: $danger-color;
+  &.hover, &:hover, &:focus {
+    background-color: $hover-danger-color;
+  }
+}
+.fab {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  color: $text-secondary;
+  box-shadow: $normal-fab;
+  justify-content: center;
+  transition: .3s ease;
+  z-index: 1;
+  cursor: pointer;
+  &:hover {
+    box-shadow: $raised-fab;
+  }
+  >i {
+    pointer-events: none;
+  }
 }
